@@ -27,9 +27,8 @@ class Student(object):
 		self.score = score
 
 
-def json_to_dict(cwd):
-	filename = "preferences.json"
-	path = f"{cwd}/../inputs/{filename}"
+def json_to_dict(filename, directory):
+	path = f"{directory}/{filename}"
 	with open(path) as serialized:
 		spec = json.load(serialized)
 	if debug:
@@ -50,9 +49,12 @@ def initialise_students(dict_):
 	return object_list
 
 
-def read_json(cwd):
-	student_dict = json_to_dict(cwd)
+def read_json(filename, directory):
+	student_dict = json_to_dict(filename, directory)
 	student_list = initialise_students(student_dict)
 	return student_list
+
+
+
 
 
